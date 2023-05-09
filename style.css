@@ -1,0 +1,232 @@
+
+html, body, section.horizontal {
+    overflow-x: hidden;
+}
+
+body { 
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 0;
+    padding: 50px 0 0 50px;
+}
+
+p {
+    margin: 0;
+    padding: 50px 0 50px 50px;
+}
+
+section {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/*
+section:nth-of-type(odd) {
+background-color: #f0f0f0;
+}
+
+section:nth-of-type(even) {
+background-color: #ffffff;
+}*/
+
+section.horizontal {
+    overflow-x: hidden;
+    background-color: #000;
+}
+
+section.horizontal .pin-wrap,
+section.horizontal .animation-wrap {
+    display: flex;
+    position: relative;
+    z-index: 1;  
+    height: 100vh;
+}
+
+
+section.horizontal .item {
+    position: relative;
+    padding: 5px 5px;
+    flex: 0 0 3070px;;
+/*    height: calc(100vh - 300px);*/
+display: flex;
+align-items: center;
+line-height: 1.7;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+/*    border-right: 1px solid rgba(0, 0, 0, 0.06);*/
+background-color: transparent;
+flex-wrap: wrap;
+overflow-y: hidden;
+}
+
+/*section.horizontal .item:before {
+position: absolute;
+font-size: 100px;
+opacity: .13;
+font-weight: bold;    
+z-index: -1;
+-webkit-transform: translate(-30px, -50px);
+transform: translate(-30px, -50px);
+line-height: 1;
+}*/
+
+
+/*section.horizontal .animation-wrap.to-right {
+counter-reset: item;
+float: left;
+}
+
+section.horizontal .animation-wrap.to-left {
+counter-reset: item 11;
+float: right; 
+}
+
+section.horizontal .animation-wrap.to-right .item:before {
+counter-increment: item;
+content: counter(item);
+}
+
+section.horizontal .animation-wrap.to-left .item:before {
+counter-increment: item -1;
+content: counter(item);
+}*/
+
+
+section.horizontal .animation-wrap .item {
+    align-items: flex-start;
+}
+
+
+section.horizontal .animation-wrap .item .row {
+    margin: 0;
+    padding: 0;
+}
+
+/*section.horizontal .animation-wrap .item:nth-child(2n+2) {
+align-items: flex-start;
+}
+
+section.horizontal .animation-wrap .item:nth-child(4n+4) {
+align-items: flex-end;
+}*/
+
+section.horizontal .item img {
+    margin: 5px 5px 0 0;
+    height: calc(25vh - 10px);
+/*    border: 0.5px solid black;*/
+cursor: pointer;
+}
+
+section.horizontal .item img:hover {
+    scale: 1.5;
+    z-index: 1000;
+/*    border: 0.1px solid black;*/
+}
+
+section.horizontal .item img:not(:hover) {
+    filter: blur(1.5px);
+}
+
+/*blank*/
+
+section.blank {
+    background-color: #fff;
+    align-items: flex-start;
+}
+
+/*canvas*/
+
+#canvas {
+
+}
+
+/*scrollbar*/
+
+body {
+/* Foreground, Background */
+scrollbar-color: #000 #333;
+}
+::-webkit-scrollbar {
+    width: 10px; /* Mostly for vertical scrollbars */
+    height: 10px; /* Mostly for horizontal scrollbars */
+}
+::-webkit-scrollbar-thumb { /* Foreground */
+    background: #000;
+}
+::-webkit-scrollbar-track { /* Background */
+    background: #333;
+}
+
+// MODAL
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 75vh !important; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #000;
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 500px;
+}
+
+
+/* Add Animation */
+.modal-content{  
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #000;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
