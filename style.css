@@ -294,3 +294,8 @@ section.horizontal .itemmain img:not(:hover) {
     margin-left: -10px;
     margin-bottom: -20px;
 }
+
+
+body > section:nth-child(3) > div > div > div > div > img {
+    border: 10px solid black;
+}
