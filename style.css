@@ -1,21 +1,12 @@
 
-html, body, section.horizontal {
+html, body {
     overflow-x: hidden;
-}
-
-body { 
     margin: 0;
     padding: 0;
 }
 
-h1 {
-    margin: 0;
-    padding: 50px 0 0 50px;
-}
-
-p {
-    margin: 0;
-    padding: 50px 0 50px 50px;
+body { 
+    
 }
 
 section {
@@ -24,17 +15,122 @@ section {
     position: relative;
 }
 
-/*
-section:nth-of-type(odd) {
-background-color: #f0f0f0;
+/*blank*/
+
+section.blank {
+    background-color: #fff;
+    align-items: flex-start;
 }
 
-section:nth-of-type(even) {
-background-color: #ffffff;
+div#form {
+    width: 568px;
+}
+
+div#form input, div#form textarea {
+    border: 1px solid black;
+}
+
+section#vizviz {
+    height: 100vh;
+}
+
+/*p5 canvas*/
+
+#canvas {
+    display: block;
+}
+
+/*scrollbar*/
+::-webkit-scrollbar {
+    width: 0px; /* Mostly for vertical scrollbars */
+    height: 0px; /* Mostly for horizontal scrollbars */
+}
+/*::-webkit-scrollbar-thumb {
+    background: #000;
+}
+::-webkit-scrollbar-track {
+    background: none;
 }*/
+
+/* MODAL*/
+
+.myModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    padding-top: 75px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100vh !important; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.5);;
+}
+
+.myModal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 500px;
+}
+
+.myModal-content{  
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+.myClose {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.myClose:hover,
+.myClose:focus {
+    color: #ccc;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 700px){
+    .myModal-content {
+        width: 100%;
+    }
+}
+
+/* top-slide*/
+#top-slide {
+    
+}
+
+#top-slide .display-1 {
+    font-size: 10rem;
+}
+
+
+/*horizontal maps*/
 
 section.horizontal {
     overflow-x: hidden;
+}
+
+section.horizontal .itemmain {
     background-color: #000;
 }
 
@@ -46,8 +142,31 @@ section.horizontal .animation-wrap {
     height: 100vh;
 }
 
-
 section.horizontal .item {
+    position: relative;
+    padding: 150px 80px;
+    flex: 0 0 500px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    line-height: 1.7;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-right: 1px solid rgba(0, 0, 0, 0.06);
+    background-color: transparent;
+}
+
+.item img::nth-child(odd) {
+    rotate: 5deg;
+}
+
+.item img::nth-child(even) {
+    rotate: -5deg;
+}
+
+section.horizontal .itemmain {
     position: relative;
     padding: 5px 5px;
     flex: 0 0 3070px;;
@@ -65,40 +184,11 @@ flex-wrap: wrap;
 overflow-y: hidden;
 }
 
-/*section.horizontal .item:before {
-position: absolute;
-font-size: 100px;
-opacity: .13;
-font-weight: bold;    
-z-index: -1;
--webkit-transform: translate(-30px, -50px);
-transform: translate(-30px, -50px);
-line-height: 1;
-}*/
-
-
-/*section.horizontal .animation-wrap.to-right {
-counter-reset: item;
-float: left;
-}
-
-section.horizontal .animation-wrap.to-left {
-counter-reset: item 11;
-float: right; 
-}
-
-section.horizontal .animation-wrap.to-right .item:before {
-counter-increment: item;
-content: counter(item);
-}
-
-section.horizontal .animation-wrap.to-left .item:before {
-counter-increment: item -1;
-content: counter(item);
-}*/
-
-
 section.horizontal .animation-wrap .item {
+    align-items: flex-start;
+}
+
+section.horizontal .animation-wrap .itemmain {
     align-items: flex-start;
 }
 
@@ -108,125 +198,99 @@ section.horizontal .animation-wrap .item .row {
     padding: 0;
 }
 
-/*section.horizontal .animation-wrap .item:nth-child(2n+2) {
-align-items: flex-start;
+section.horizontal .animation-wrap .itemmain .row {
+    margin: 0;
+    padding: 0;
 }
 
-section.horizontal .animation-wrap .item:nth-child(4n+4) {
-align-items: flex-end;
-}*/
 
-section.horizontal .item img {
+section.horizontal .itemmain img {
     margin: 5px 5px 0 0;
     height: calc(25vh - 10px);
-/*    border: 0.5px solid black;*/
-cursor: pointer;
-}
-
-section.horizontal .item img:hover {
-    scale: 1.5;
-    z-index: 1000;
-/*    border: 0.1px solid black;*/
-}
-
-section.horizontal .item img:not(:hover) {
-    filter: blur(1.5px);
-}
-
-/*blank*/
-
-section.blank {
-    background-color: #fff;
-    align-items: flex-start;
-}
-
-/*canvas*/
-
-#canvas {
-
-}
-
-/*scrollbar*/
-
-body {
-/* Foreground, Background */
-scrollbar-color: #000 #333;
-}
-::-webkit-scrollbar {
-    width: 10px; /* Mostly for vertical scrollbars */
-    height: 10px; /* Mostly for horizontal scrollbars */
-}
-::-webkit-scrollbar-thumb { /* Foreground */
-    background: #000;
-}
-::-webkit-scrollbar-track { /* Background */
-    background: #333;
-}
-
-// MODAL
-
-
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 75vh !important; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: #000;
-}
-
-/* Modal Content (image) */
-.modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 500px;
-}
-
-
-/* Add Animation */
-.modal-content{  
-    -webkit-animation-name: zoom;
-    -webkit-animation-duration: 0.6s;
-    animation-name: zoom;
-    animation-duration: 0.6s;
-}
-
-@-webkit-keyframes zoom {
-    from {-webkit-transform:scale(0)} 
-    to {-webkit-transform:scale(1)}
-}
-
-@keyframes zoom {
-    from {transform:scale(0)} 
-    to {transform:scale(1)}
-}
-
-/* The Close Button */
-.close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #000;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
+    width: 140px;
     cursor: pointer;
 }
 
-/* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
-    .modal-content {
-        width: 100%;
-    }
+section.horizontal .itemmain img:hover {
+    scale: 1.35;
+    z-index: 100;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 1px solid black;
+}
+
+section.horizontal .itemmain img:not(:hover) {
+    filter: blur(1.5px);
+}
+
+/*after-gallery*/
+
+#after-gallery {
+    height: 200vh;
+}
+
+.polaroid {
+  text-align: center;
+  margin-top: 50px;
+  padding: 10px 20px;
+}
+
+.polaroid img {
+/*  width: 80%;*/
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+  transform: rotate(5deg);
+}
+
+.polaroid img:nth-of-type(even) {
+    transform: rotate(-5deg);
+}
+
+.dropdown-menu {
+    height: auto;
+    max-height: 200px;
+}
+
+.speech-bubble1 {
+    position: relative;
+    background: #000000;
+    border-radius: .4em;
+}
+
+.speech-bubble1:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-top-color: #000000;
+    border-bottom: 0;
+    border-right: 0;
+    margin-left: -10px;
+    margin-bottom: -20px;
+}
+
+.speech-bubble2 {
+    position: relative;
+    background: #000000;
+    border-radius: .4em;
+}
+
+.speech-bubble2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-top-color: #000000;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -10px;
+    margin-bottom: -20px;
 }
